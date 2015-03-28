@@ -8,7 +8,7 @@ url="https://github.com/oggy-/thinkpad-yoga-rotate"
 license=('GPL-3')
 arch=('any')
 depends=('xorg-xrandr' 'acpid')
-source=('rotate-screen.sh' 'tablet-mode')
+source=('rotate-screen.py' 'tablet-mode')
 sha1sums=('81eebe35cbfc61f17ecaef51506cadefc9412155'
 	'adf3aa47174d32f23f4f52186bdc8de07a802ddc')
 install=$pkgname.install
@@ -20,7 +20,7 @@ package() {
 
     # Install the handler
     mkdir -p "$pkgdir/etc/acpi/actions"
-    install -m 755 rotate-screen.sh "$pkgdir/etc/acpi/actions"
+    install -m 755 rotate-screen.py "$pkgdir/etc/acpi/actions"
 }
 
 
