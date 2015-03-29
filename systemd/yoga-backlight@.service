@@ -1,0 +1,17 @@
+[Unit]
+Description=[ThinkPad Yoga 14 S3] Backlight
+Requires=display-manager.service
+After=display-manager.service
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/env python2 /opt/thinkpad-yoga-14-s3-scripts/backlight/thinkpad-backlight.py
+KillMode=process
+User=%i
+Environment="DISPLAY=:0" "XAUTHORITY=/home/%i/.Xauthority"
+Restart=on-failure
+RestartSec=5
+
+
+[Install]
+WantedBy=multi-user.target
