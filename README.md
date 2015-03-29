@@ -1,4 +1,4 @@
-thinkpad-yoga-14-scripts
+thinkpad-yoga-14-s3-scripts
 =====================
 
 A collection of scripts and systemd units to restore functionality of
@@ -28,7 +28,7 @@ Assuming installed as per the PKGBUILD
 Depending whether or not your DE rotates the touchscreen automatically
 edit the following file accordingly:
 
-    /opt/thinkpad-yoga-14-S3/rotate/thinkpad-rotate.py
+    /opt/thinkpad-yoga-14-s3-scripts/rotate/thinkpad-rotate.py
 
 
 # TODO:
@@ -43,8 +43,8 @@ edit the following file accordingly:
 # Manual installation
 
     sudo -s
-    git clone https://github.com/johanneswilm/thinkpad-yoga-14-s3 /opt/thinkpad-yoga-14-s3
-    cp /opt/thinkpad-yoga-14-s3/systemd/* /usr/lib/systemd/system/
+    git clone https://github.com/johanneswilm/thinkpad-yoga-14-s3-scripts /opt/thinkpad-yoga-14-s3-scripts
+    cp /opt/thinkpad-yoga-14-s3-scripts/systemd/* /usr/lib/systemd/system/
 
     systemctl start yoga-rotate@username.service
     systemctl start yoga-backlight@username.service

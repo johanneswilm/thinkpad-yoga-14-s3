@@ -1,12 +1,12 @@
 # Maintainer: AdmiralAkber
 
-pkgname='thinkpad-yoga-14-s3-git'
-_gitname='thinkpad-yoga-14-s3'
+pkgname='thinkpad-yoga-14-s3-scripts-git'
+_gitname='thinkpad-yoga-14-s3-scripts'
 pkgver=20150329
 pkgrel=2
 pkgdesc='A collection of scripts and systemd services for tablet functionality of the ThinkPad Yoga 14 S3'
-url="https://github.com/johanneswilm/thinkpad-yoga-14-s3"
-source=('thinkpad-yoga-14-s3::git+https://github.com/johanneswilm/thinkpad-yoga-14-s3')
+url="https://github.com/johanneswilm/thinkpad-yoga-14-s3-scripts"
+source=('thinkpad-yoga-14-s3-scripts::git+https://github.com/johanneswilm/thinkpad-yoga-14-s3-scripts')
 license=('GPL3')
 arch=('any')
 depends=('xorg-xrandr' 'xorg-xinput' 'xbindkeys' 'kbd' 'systemd' 'gawk')

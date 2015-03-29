@@ -7,7 +7,7 @@ touchpad/trackpoint based on orientation gathered from accelerometer.
 
 Tested with Lenovo Thinkpad 14 Yoga S3
 
-https://github.com/johanneswilm/thinkpad-yoga-14-S3
+https://github.com/johanneswilm/thinkpad-yoga-14-s3-scripts
 
 Acknowledgements:
 Modified from source:
