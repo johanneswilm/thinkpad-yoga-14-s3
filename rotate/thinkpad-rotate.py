@@ -18,7 +18,7 @@ https://gist.githubusercontent.com/ei-grad/4d9d23b1463a99d24a8d/raw/rotate.py
 ### BEGIN Configurables
 
 rotate_pens = False # Set false if your DE rotates pen for you
-disable_touchpads = False # Don't use in conjunction with tablet-mode
+disable_touchpads = True
 
 ### END Configurables
 
