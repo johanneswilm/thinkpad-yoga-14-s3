@@ -49,7 +49,9 @@ while 1:
     if abs(bl_val - old_bl_val) >= TOL:
         with open('/sys/class/backlight/intel_backlight/brightness', 'w') as bl_file:
             bl_file.write('%s\n' % (bl_val))
-        print min_bl, max_bl, ls_val, bl_val
+        print(min_bl, max_bl, ls_val, bl_val)
 
     old_bl_val = bl_val
+    ls_file.close()
+    bl_file.close()
     time.sleep(SLEEP_TIME)
