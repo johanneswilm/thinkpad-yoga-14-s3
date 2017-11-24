@@ -1,4 +1,4 @@
-#!/usr/bin/env python2
+#!/usr/bin/env python3
 """
 thinkpad-rotate.py
 
@@ -17,7 +17,7 @@ https://gist.githubusercontent.com/ei-grad/4d9d23b1463a99d24a8d/raw/rotate.py
 
 ### BEGIN Configurables
 
-rotate_pens = False # Set false if your DE rotates pen for you
+rotate_pens = True # Set false if your DE rotates pen for you
 disable_touchpads = True
 
 ### END Configurables
@@ -49,14 +49,13 @@ else:
 env = environ.copy()
 
 devices = check_output(['xinput', '--list', '--name-only'],env=env).splitlines()
+touchscreen_names = ['touchscreen', 'touch digitizer', 'finger']
+touchscreens = [i.decode('utf-8') for i in devices if any(j in i.lower().decode('utf-8') for j in touchscreen_names)]
 
-touchscreen_names = ['touchscreen', 'touch digitizer']
-touchscreens = [i for i in devices if any(j in i.lower() for j in touchscreen_names)]
-
-wacoms = [i for i in devices if any(j in i.lower() for j in ['wacom'])]
+wacoms = [i.decode('utf-8') for i in devices if any(j in i.lower().decode('utf-8') for j in ['pen stylus', 'pen eraser'])]
 
 touchpad_names = ['touchpad', 'trackpoint', 'stick']
-touchpads = [i for i in devices if any(j in i.lower() for j in touchpad_names)]
+touchpads = [i.decode('utf-8') for i in devices if any(j in i.lower().decode('utf-8') for j in touchpad_names)]
 
 scale = float(read('in_accel_scale'))
 
@@ -84,9 +83,10 @@ def rotate(state):
         ] + s['coord'].split(),env=env)
     if rotate_pens:
         for dev in wacoms:
+            #print('xsetwacom','set', "'"+dev+"'",'rotate',s['pen']) # debug
             check_call([
-                'xsetwacom','set', dev,
-                'rotate',s['pen']],env=env)
+                'xsetwacom','set',dev,
+                'Rotate',s['pen']],env=env)
     if disable_touchpads:
         for dev in touchpads:
             check_call(['xinput', s['touchpad'], dev],env=env)
@@ -111,6 +111,7 @@ if __name__ == '__main__':
                 continue
             if STATES[i]['check'](x, y):
                 current_state = i
+                #print(i) # debug
                 rotate(i)
                 break
         sleep(1)
